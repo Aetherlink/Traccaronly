@@ -1,0 +1,16 @@
+version: "3"
+  
+services:
+  traccar:
+    container_name: Traccar
+    image: traccar/traccar:latest
+    restart: unless-stopped
+    ports:
+      - "8882:8082"
+      - "5000-5150:5000-5150"
+    networks:
+      - arobalink
+networks:
+  arobalink:
+    driver: bridge
+    name: arobalink
